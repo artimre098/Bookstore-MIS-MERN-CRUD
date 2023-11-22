@@ -130,5 +130,5 @@ dist
 .pnp.*
 
 # Set the line ending for these files to LF
-*.json text eol=lf
-*.lock text eol=lf
+#*.json text eol=lf
+#*.lock text eol=lf
