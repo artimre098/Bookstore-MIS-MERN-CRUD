@@ -36,12 +36,12 @@ function Home() {
             <button className='bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
                 onClick={() => setShowType('table')}
             >
-                Table
+                Card
             </button>
             <button className='bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
                 onClick={() => setShowType('card')}
             >
-                Card
+                Table
             </button>
 
       </div>
@@ -54,7 +54,7 @@ function Home() {
       {loading ?(
           <Spinner />
       ) : (
-          showType === 'table' ?(<BooksTable books={books} />):(<BooksCard books={books} />)
+          showType === 'table' ?(<BooksCard books={books} />) :(<BooksTable books={books} />)
       )}
     </div>
   )
