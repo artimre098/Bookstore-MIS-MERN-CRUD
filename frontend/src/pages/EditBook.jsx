@@ -9,6 +9,7 @@ function EditBook() {
   const [title,setTitle] = useState('');
   const [author,setAuthor] = useState('');
   const [publishYear,setPublishYear] = useState('');
+  const [synopsis,setSynopsis] = useState('');
   const [loading,setLoading] = useState(false);
   const navigate = useNavigate();
   const {enqueueSnackbar} = useSnackbar();
@@ -22,6 +23,7 @@ function EditBook() {
         setAuthor(response.data.data.author);
         setPublishYear(response.data.data.publishYear);
         setTitle(response.data.data.title);
+        setSynopsis(response.data.data.synopsis);
         setLoading(false);
       })
       .catch((error) => {
@@ -34,6 +36,7 @@ function EditBook() {
           title,
           author,
           publishYear,
+          synopsis,
       };
       setLoading(true);
       axios
@@ -83,6 +86,15 @@ function EditBook() {
                 type='text'
                 value={publishYear}
                 onChange={(e) => setPublishYear(e.target.value)}
+                className='border-2 border-gray-500 px-4 py-2 w-full'
+              />
+          </div>
+          <div className='my-4'>
+              <label className='text-xl mr-4 text-gray-500'>Synopsis</label>
+              <input
+                type='text'
+                value={synopsis}
+                onChange={(e) => setSynopsis(e.target.value)}
                 className='border-2 border-gray-500 px-4 py-2 w-full'
               />
           </div>
