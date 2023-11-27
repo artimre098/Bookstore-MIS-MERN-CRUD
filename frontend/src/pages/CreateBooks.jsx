@@ -2,6 +2,9 @@ import React , {useState} from 'react'
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import axios from 'axios'
+
+import CsvImportButton from '../components/CsvImportButton';
+
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 
@@ -14,7 +17,24 @@ function CreateBooks() {
   const navigate = useNavigate();
   const {enqueueSnackbar} = useSnackbar();
 
-  const handleSaveBook = () => {
+  const handleSaveBook = async () => {
+
+    const existingBook = await axios.get('http://localhost:5555/books', {
+        params: {
+          title,
+          author,
+        },
+      });
+      console.log("Hello");
+      console.log(existingBook);
+
+      if (existingBook.data.counts > 0) {
+        enqueueSnackbar('Book with the same title and author already exists!', {
+          variant: 'warning',
+        });
+        return;
+      }
+
       const data = {
           title,
           author,
@@ -35,6 +55,32 @@ function CreateBooks() {
             enqueueSnackbar('Book Creation Error!',{variant: 'error'});
             setLoading(false);
         });
+  };
+
+  const handleImportCSV = async (importedData) => {
+    try {
+      // Assuming your API endpoint supports bulk inserts
+      setLoading(true);
+      
+      // Map the imported data to the format expected by your API
+      const formattedData = importedData.map((item) => ({
+        title: item.title,
+        author: item.author,
+        publishYear: item.publishYear,
+        synopsis: item.synopsis,
+      }));
+     
+  
+      // Send a POST request to your API endpoint
+      await axios.post('http://localhost:5555/books/bulk-insert', formattedData);
+  
+      enqueueSnackbar('Books Imported Successfully!', { variant: 'success' });
+    } catch (error) {
+      console.error('Error importing books:', error.message);
+      enqueueSnackbar('Error importing books', { variant: 'error' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -81,9 +127,11 @@ function CreateBooks() {
                 className='border-2 border-gray-500 px-4 py-2 w-full'
               />
           </div>
-          <button className='p-2 bg-sky-300 m-8' onClick={handleSaveBook}>
+          <button className='p-2 bg-sky-300 m-2' onClick={handleSaveBook}>
               Save
           </button>
+          <p className='text-center'> or..</p>
+          <CsvImportButton onImport={handleImportCSV} />
         </div>
     </div>
   )
