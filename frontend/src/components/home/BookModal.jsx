@@ -1,6 +1,7 @@
 import { AiOutlineClose } from "react-icons/ai"
 import { PiBookOpenTextLight } from "react-icons/pi"
 import { BiUserCircle } from "react-icons/bi"
+import { IoMdPaper } from 'react-icons/io';
 
 const BookModal = ({ book, onClose }) => {
     return (
@@ -26,12 +27,12 @@ const BookModal = ({ book, onClose }) => {
                     <BiUserCircle className="text-red-300 text-2xl" />
                     <h2 className="my-1">{book.author}</h2>
                 </div>
-                <p className="mt-4">Anything you want show!</p>
-                <p className="my-2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Velit delectus deleniti quidem, nam fuga officiis enim nostrum quia. 
-                    Mollitia veniam rem delectus aperiam fugiat corrupti alias praesentium provident itaque veritatis!
+                <div className="flex justify-start items-center gap-x-2">
+                <p><IoMdPaper className="text-red-300 text-2xl" />  </p>
+                <p className="my-1">
+                    {book.synopsis}
                 </p>
+                </div>
             </div>
         </div>
     )
