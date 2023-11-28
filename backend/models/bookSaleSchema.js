@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const bookSaleSchema = new mongoose.Schema({
     book_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Book', required: true },

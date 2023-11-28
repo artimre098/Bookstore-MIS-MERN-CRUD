@@ -2,8 +2,12 @@ import { AiOutlineClose } from "react-icons/ai"
 import { PiBookOpenTextLight } from "react-icons/pi"
 import { BiUserCircle } from "react-icons/bi"
 import { FaMoneyBill, FaBox } from 'react-icons/fa'
+import { useState , useEffect} from "react"
+import BookSaleModal from "../sales/BookSaleModal"
 
 const BookModal = ({ book, onClose }) => {
+    const [showModal, setShowModal] = useState(true);
+    
     return (
         <div className="fixed bg-black bg-opacity-60 top-0 left-0 right-0 bottom-0 z-50 flex justify-center items-center"
             onClick={onClose}
@@ -35,7 +39,25 @@ const BookModal = ({ book, onClose }) => {
                     <FaBox className="text-red-300 text-2xl" />
                     <h2 className="my-1">Available Stock: <span className="text-2xl font-bold text-blue-800">{book.stock}</span></h2>
                 </div>
+                {/* Buy Button */}
+                <button
+                    className="mt-10 bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => {
+                        setShowModal(true);
+                        onClose();
+                        
+                        
+                        console.log("showModal:", showModal);
+                    }}
+                >
+                    Buy
+                </button>
             </div>
+            {
+                showModal && (
+                    <BookSaleModal book={book} onClose={() => setShowModal(false)} />
+                ) 
+            }
         </div>
     )
 }
