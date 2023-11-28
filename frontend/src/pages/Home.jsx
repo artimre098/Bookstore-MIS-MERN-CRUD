@@ -70,7 +70,7 @@ function Home() {
     }, [searchTerm]);
     return (
         <div className='p-4'>
-            <div className='flex justify-center items-center gap-x-4'>
+            <div className='flex flex-col md:flex-row justify-center items-center gap-y-4 md:gap-x-4'>
                 <Search onSearch={setSearchTerm} />
                 <button className='bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg'
                     onClick={() => setShowType('table')}
@@ -85,9 +85,10 @@ function Home() {
 
             </div>
             <div className='flex justify-between items-center'>
-                <h1 className='text-3xl my-8'>Books List : {numberOfData}</h1>
-                <Link to='books/create'>
+                <h1 className='text-3xl my-10'>Books List : {numberOfData}</h1>
+                <Link to='books/create' className='flex items-center gap-2'>
                     <MdOutlineAddBox className='text-sky-800 text-4xl' />
+                    <span className='text-xl'>Add Book</span>
                 </Link>
             </div>
             {loading ? (
