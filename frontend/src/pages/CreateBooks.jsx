@@ -12,7 +12,11 @@ function CreateBooks() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [publishYear, setPublishYear] = useState('');
-  const [synopsis, setSynopsis] = useState('');
+  const [isbn, setIsbn] = useState('');
+  const [price, setPrice] = useState('');
+  const [category, setCategory] = useState('');
+  const [publisher, setPublisher] = useState('');
+  const [stock, setStock] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
@@ -38,7 +42,11 @@ function CreateBooks() {
       title,
       author,
       publishYear,
-      synopsis,
+      isbn,
+      price,
+      category,
+      publisher,
+      stock,
     };
     setLoading(true);
     axios
@@ -66,7 +74,11 @@ function CreateBooks() {
         title: item.title,
         author: item.author,
         publishYear: item.publishYear,
-        synopsis: item.synopsis,
+        isbn: item.isbn,
+        price: item.price,
+        category: item.category,
+        publisher: item.publisher,
+        stock: item.stock,
       }));
 
       const existingBooksResponse = await axios.get('http://localhost:5555/books');
@@ -135,11 +147,11 @@ function CreateBooks() {
           />
         </div>
         <div className='my-4'>
-          <label className='text-xl mr-4 text-gray-500'>Synopsis</label>
+          <label className='text-xl mr-4 text-gray-500'>ISBN</label>
           <input
             type='text'
-            value={synopsis}
-            onChange={(e) => setSynopsis(e.target.value)}
+            value={isbn}
+            onChange={(e) => setIsbn(e.target.value)}
             className='border-2 border-gray-500 px-4 py-2 w-full'
           />
         </div>

@@ -50,7 +50,11 @@ router.put('/:id',async(request,response)=>{
         if(!request.body.title ||
             !request.body.author ||
             !request.body.publishYear ||
-            !request.body.synopsis
+            !request.body.isbn ||
+            !request.body.price ||
+            !request.body.category ||
+            !request.body.publisher ||
+            !request.body.stock
         ){
             return response.status(400).send({message:'Send all required fields: title, author, publishYear, synopsis'});
         }
@@ -94,7 +98,11 @@ router.post('/',async (request,response)=>{
         if(!request.body.title ||
             !request.body.author ||
             !request.body.publishYear ||
-            !request.body.synopsis
+            !request.body.isbn ||
+            !request.body.price ||
+            !request.body.category ||
+            !request.body.publisher ||
+            !request.body.stock
         ){
             return response.status(400).send({message:'Send all required fields: title, author, publishYear'});
         }
@@ -103,7 +111,11 @@ router.post('/',async (request,response)=>{
             title: request.body.title,
             author: request.body.author,
             publishYear: request.body.publishYear,
-            synopsis: request.body.synopsis,
+            isbn  : request.body.isbn,
+            price: request.body.price,
+            category: request.body.category,
+            publisher: request.body.publisher,
+            stock: request.body.stock,
         };
 
         const book = await Books.create(newBook);
