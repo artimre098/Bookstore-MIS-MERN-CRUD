@@ -21,19 +21,19 @@ const BookModal = ({ book, onClose }) => {
                 <h4 className="my-2 text-gray-500">ISBN: {book.isbn}</h4>
                 <div className="flex justify-start items-center gap-x-2">
                     <PiBookOpenTextLight className="text-red-300 text-2xl" />
-                    <h2 className="my-1">{book.title}</h2>
+                    <h2 className="my-1">Book: <span className="font-bold text-blue-800">{book.title}</span></h2>
                 </div>
                 <div className="flex justify-start items-center gap-x-2">
                     <BiUserCircle className="text-red-300 text-2xl" />
-                    <h2 className="my-1">{book.author}</h2>
+                    <h2 className="my-1">Author: <span className="font-bold italic">{book.author}</span></h2>
                 </div>
                 <div className="flex justify-start items-center gap-x-2">
                     <FaMoneyBill className="text-red-300 text-2xl" />
-                    <h2 className="my-1">{book.price}</h2>
+                    <h2 className="my-1">Price: <span className="text-2xl font-bold text-green-800">₱{book.price}</span></h2>
                 </div>
                 <div className="flex justify-start items-center gap-x-2">
                     <FaBox className="text-red-300 text-2xl" />
-                    <h2 className="my-1">{book.stock}</h2>
+                    <h2 className="my-1">Available Stock: <span className="text-2xl font-bold text-blue-800">{book.stock}</span></h2>
                 </div>
             </div>
         </div>

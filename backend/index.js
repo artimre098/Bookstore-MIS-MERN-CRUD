@@ -3,6 +3,7 @@ import { PORT , mongoDBURL} from './config.js';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import booksRoute from './routes/booksRoute.js';
+import bookSaleRoute from './routes/bookSaleRoute.js';
 //import bodyParser from 'body-parser';   
 
 
@@ -19,6 +20,7 @@ app.use(cors());
 // }));
 
 app.use('/books', booksRoute);
+app.use('/bookSale', bookSaleRoute);
 
 app.get('/',(request,response)=>{
     console.log(request);

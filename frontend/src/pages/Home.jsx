@@ -53,6 +53,7 @@ function Home() {
                     const filteredBooks = response.data.data.filter((book) =>
                         book.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 ||
                         book.author.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 ||
+                        book.category.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 ||
                         book.publishYear.toString().indexOf(searchTerm) !== -1
                         
                     );
@@ -85,7 +86,7 @@ function Home() {
 
             </div>
             <div className='flex justify-between items-center'>
-                <h1 className='text-3xl my-10'>Books List : {numberOfData}</h1>
+                <h1 className='text-3xl my-10'>Book Inventory : {numberOfData}</h1>
                 <Link to='books/create' className='flex items-center gap-2'>
                     <MdOutlineAddBox className='text-sky-800 text-4xl' />
                     <span className='text-xl'>Add Book</span>
