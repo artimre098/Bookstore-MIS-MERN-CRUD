@@ -119,8 +119,7 @@ router.post('/',async (request,response)=>{
 router.post('/bulk-insert', async (req, res) => {
     try {
         const booksToInsert = req.body;
-        console.log("Hello--------------");
-        console.log(booksToInsert);
+        
         if (!Array.isArray(booksToInsert)) {
           return res.status(400).json({ success: false, message: 'Invalid data format. Expected an array.' });
         }

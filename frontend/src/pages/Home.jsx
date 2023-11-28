@@ -13,6 +13,8 @@ import Search from '../components/Search'
 
 
 function Home() {
+
+    const [numberOfData,setNumberOfData] = useState();
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
     const [showType, setShowType] = useState('table');
@@ -25,6 +27,8 @@ function Home() {
             setLoading(true);
             const response = await axios.get('http://localhost:5555/books');
             setBooks(response.data.data);
+            const x = response.data.data;
+            setNumberOfData(x.length);
             setLoading(false);
         } catch (error) {
             console.log(error);
@@ -52,8 +56,9 @@ function Home() {
                         book.publishYear.toString().indexOf(searchTerm) !== -1
                         
                     );
-                    console.log(filteredBooks);
+                    
                     setBooks(filteredBooks);
+                    setNumberOfData(filteredBooks.length);
                     setLoading(false);
                 }
             } catch (error) {
@@ -80,7 +85,7 @@ function Home() {
 
             </div>
             <div className='flex justify-between items-center'>
-                <h1 className='text-3xl my-8'>Books List</h1>
+                <h1 className='text-3xl my-8'>Books List : {numberOfData}</h1>
                 <Link to='books/create'>
                     <MdOutlineAddBox className='text-sky-800 text-4xl' />
                 </Link>
