@@ -26,41 +26,99 @@ function ShowBooks() {
   return (
     <div className='p-4'>
       <BackButton />
-      <h1 className='text-3xl my-4'>Show Book</h1>
+      <h1 className='text-3xl my-4 text-center'>Book Details</h1>
       {loading ? (
         <Spinner />
       ):book.length === 0 ? (
         <p>No matching books found.</p>
       ) : (
-        <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4'>
-            <div className='my-4'>
-                <span className='text-xl mr-4 text-gray-500'> Id </span>
+        <div className='flex space-x-4 justify-center'>
+        <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-2 '>
+            <div className='my-3'>
+                <span className='text-xl mr-4 text-blue-800'> Id </span>
                 <span > {book._id}</span>
             </div>
-            <div className='my-4'>
-                <span className='text-xl mr-4 text-gray-500'> Title </span>
+            <div className='my-3'>
+                <span className='text-xl mr-4 text-blue-800'> ISBN </span>
+                <span > {book.isbn}</span>
+            </div>
+            <div className='my-3'>
+                <span className='text-xl mr-4 text-blue-800'> Title </span>
                 <span > {book.title}</span>
             </div>
-            <div className='my-4'>
-                <span className='text-xl mr-4 text-gray-500'> Author </span>
+            <div className='my-3'>
+                <span className='text-xl mr-4 text-blue-800'> Author </span>
                 <span > {book.author}</span>
             </div>
-            <div className='my-4'>
-                <span className='text-xl mr-4 text-gray-500'> Publish Year </span>
+            <div className='my-3'>
+                <span className='text-xl mr-4 text-blue-800'> Publish Year </span>
                 <span > {book.publishYear}</span>
             </div>
-            <div className='my-4'>
-                <span className='text-xl mr-4 text-gray-500'> Synopsis </span>
-                <span > {book.synopsis}</span>
+            <div className='my-3'>
+                <span className='text-xl mr-4 text-blue-800'> Price </span>
+                <span >₱ {book.price}</span>
             </div>
-            <div className='my-4'>
-                <span className='text-xl mr-4 text-gray-500'> Create Time </span>
+            <div className='my-3'>
+                <span className='text-xl mr-4 text-blue-800'> Category </span>
+                <span > {book.category}</span>
+            </div>
+            <div className='my-3'>
+                <span className='text-xl mr-4 text-blue-800'> Available Stock </span>
+                <span > {book.stock}</span>
+            </div>
+            
+            <div className='my-3'>
+                <span className='text-xl mr-4 text-blue-800'> Create Time </span>
                 <span > {new Date(book.createdAt).toString()}</span>
             </div>
-            <div className='my-4'>
-                <span className='text-xl mr-4 text-gray-500'> Last Update Time </span>
+            <div className='my-3'>
+                <span className='text-xl mr-4 text-blue-800'> Last Update Time </span>
                 <span > {new Date(book.updatedAt).toString()}</span>
             </div>
+        </div>
+        <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-2 '>
+        <div className='my-3'>
+            <span className='text-xl mr-4 text-blue-800'> Id </span>
+            <span > {book._id}</span>
+        </div>
+        <div className='my-3'>
+            <span className='text-xl mr-4 text-blue-800'> ISBN </span>
+            <span > {book.isbn}</span>
+        </div>
+        <div className='my-3'>
+            <span className='text-xl mr-4 text-blue-800'> Title </span>
+            <span > {book.title}</span>
+        </div>
+        <div className='my-3'>
+            <span className='text-xl mr-4 text-blue-800'> Author </span>
+            <span > {book.author}</span>
+        </div>
+        <div className='my-3'>
+            <span className='text-xl mr-4 text-blue-800'> Publish Year </span>
+            <span > {book.publishYear}</span>
+        </div>
+        <div className='my-3'>
+            <span className='text-xl mr-4 text-blue-800'> Price </span>
+            <span >₱ {book.price}</span>
+        </div>
+        <div className='my-3'>
+            <span className='text-xl mr-4 text-blue-800'> Category </span>
+            <span > {book.category}</span>
+        </div>
+        <div className='my-3'>
+            <span className='text-xl mr-4 text-blue-800'> Available Stock </span>
+            <span > {book.stock}</span>
+        </div>
+        
+        <div className='my-3'>
+            <span className='text-xl mr-4 text-blue-800'> Create Time </span>
+            <span > {new Date(book.createdAt).toString()}</span>
+        </div>
+        <div className='my-3'>
+            <span className='text-xl mr-4 text-blue-800'> Last Update Time </span>
+            <span > {new Date(book.updatedAt).toString()}</span>
+        </div>
+    </div>
         </div>
       )}
     </div>

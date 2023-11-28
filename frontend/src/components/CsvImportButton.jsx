@@ -6,7 +6,7 @@ const CsvImportButton = ({ onImport }) => {
   const handleImportCSV = (data, fileInfo) => {
     // Pass the imported data to the parent component
     const cleanedData = data.filter(row =>
-        row.title && row.author && row.publishYear && row.synopsis
+        row.title && row.author && row.publishYear && row.isbn && row.price && row.category && row.publisher && row.stock
       );
     onImport(cleanedData);
   };
