@@ -5,6 +5,7 @@ import CreateBooks from '../src/pages/CreateBooks.jsx'
 import ShowBooks from '../src/pages/ShowBooks.jsx'
 import EditBook from '../src/pages/EditBook.jsx'
 import DeleteBook from '../src/pages/DeleteBook.jsx'
+import HomeSales from './pages/HomeSales.jsx';
 
 <page></page>
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path='/books/details/:id' element={<ShowBooks />}/>
       <Route path='/books/edit/:id' element={<EditBook/>}/>
       <Route path='/books/delete/:id' element={< DeleteBook/>}/>
+      <Route path='/bookSales' element={<HomeSales />}/>
     </Routes>
   )
 }
