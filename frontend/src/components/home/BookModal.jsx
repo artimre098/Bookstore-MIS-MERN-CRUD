@@ -27,7 +27,7 @@ const BookModal = ({ book, onClose }) => {
                     <PiBookOpenTextLight className="text-red-300 text-2xl" />
                     <h2 className="my-1">Book: <span className="font-bold text-blue-800">{book.title}</span></h2>
                 </div>
-                <div className="flex justify-start items-center gap-x-2">
+                {/* <div className="flex justify-start items-center gap-x-2">
                     <BiUserCircle className="text-red-300 text-2xl" />
                     <h2 className="my-1">Author: <span className="font-bold italic">{book.author}</span></h2>
                 </div>
@@ -38,7 +38,7 @@ const BookModal = ({ book, onClose }) => {
                 <div className="flex justify-start items-center gap-x-2">
                     <FaBox className="text-red-300 text-2xl" />
                     <h2 className="my-1">Available Stock: <span className="text-2xl font-bold text-blue-800">{book.stock}</span></h2>
-                </div>
+                </div> */}
                 {/* Buy Button */}
                 <button
                     className="mt-10 bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded"
