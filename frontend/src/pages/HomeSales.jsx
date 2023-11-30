@@ -56,7 +56,7 @@ const HomeSales = () => {
     useEffect(() => {
         const handleSearch = async () => {
             try {
-                //console.log('Search Term:', searchTerm);
+                console.log('Search Term:', searchTerm);
                 if (searchTerm.trim() === '') {
                    // console.log('Fetching original data...');
                     fetchData(); // If search term is empty, fetch original data
