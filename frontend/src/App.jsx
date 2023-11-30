@@ -8,11 +8,15 @@ import DeleteBook from '../src/pages/DeleteBook.jsx'
 import HomeSales from './pages/HomeSales.jsx';
 import ShowSales from './components/sales/ShowSales.jsx'
 import EditSale from './components/sales/EditSale.jsx';
+import UserLogin from './components/user/UserLogin.jsx';
+import UserRegister from './components/user/UserRegister.jsx';
 <page></page>
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Home />}/>
+      <Route path='/' element={<UserLogin />}/>
+      <Route path='/register' element={<UserRegister />}/> 
+      <Route path='/books' element={<Home />}/>
       <Route path='/books/create' element={<CreateBooks />}/>
       <Route path='/books/details/:id' element={<ShowBooks />}/>
       <Route path='/books/edit/:id' element={<EditBook/>}/>
