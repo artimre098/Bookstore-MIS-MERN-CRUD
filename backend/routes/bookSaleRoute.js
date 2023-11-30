@@ -32,14 +32,16 @@ router.get('/:id', async (req, res) => {
 // Create a new book sale
 router.post('/', async (req, res) => {
     try {
+        //console.log('Request Body:', req.body);
         const newBookSale = {
-            book_id: req.body.book_id,
+            book_id: req.body.bookId,
             customerName: req.body.customerName,
             department: req.body.department,
             quantity: req.body.quantity,
             price: req.body.price,
         };
 
+        //console.log('New Book Sale:', newBookSale);
         const bookSale = await BookSale.create(newBookSale);
 
         res.status(201).json({ success: true, data: bookSale });

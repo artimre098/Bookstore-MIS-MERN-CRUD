@@ -4,15 +4,14 @@ import { BiUserCircle, BiShow } from 'react-icons/bi'
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsInfoCircle } from "react-icons/bs"
 
-import { FaMoneyBill, FaBox } from 'react-icons/fa';
+import { FaMoneyBill, FaBox , FaShoppingCart} from 'react-icons/fa';
 import { MdOutlineDelete } from "react-icons/md"
 import { useState } from "react"
-import BookModal from "./BookModal"
+import BookSaleModal from "../sales/BookSaleModal"
 
 const BookSingleCard = ({ book  }) => {
     
     const [showModal, setShowModal] = useState(false);
-   
     return (
         <div
             key={book._id}
@@ -40,7 +39,7 @@ const BookSingleCard = ({ book  }) => {
                     <h2 className="my-1">{book.stock}</h2>
                 </div> */}
             <div className="flex justify-between items-center gap-x-2 mt-4 p-4">
-                <BiShow
+                <FaShoppingCart
                     className="text-3xl text-blue-800 hover:text-black cursor-pointer"
                     onClick={() => setShowModal(true)}
                 />
@@ -56,9 +55,12 @@ const BookSingleCard = ({ book  }) => {
             </div>
             {
                 showModal && (
-                    <BookModal book={book} onClose={() => setShowModal(false)} />
+                    
+                    <BookSaleModal book={book} onClose={() =>setShowModal(false)} />
+                    
                 ) 
             }
+            
             
         </div>
     )
