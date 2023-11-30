@@ -28,12 +28,13 @@ const ShowSaleModal = ({ sales, onClose }) => {
                 </div>
                 <div className='my-4'>
                     <label className='text-xl   mr-4 mr-2 text-black-500'>
-                        <FaCalendarAlt className="inline text-green-800 text-xl" /> Date: <span className="text-xl font-bold text-blue-800">{new Date(sales.createdAt).toLocaleDateString()}</span>
+                        <FaCalendarAlt className="inline text-green-800 text-xl" /> Date: <span className="text-xl font-bold text-blue-800">{new Date(sales.createdAt).toLocaleDateString()} - {new Date(sales.createdAt).toLocaleTimeString('en-US', { hour12: true })}</span>
                     </label>
                 </div>
+                
                 <div className='my-4'>
                     <label className='text-xl   mr-4 mr-2 text-black-500'>
-                        <FaClock className="inline text-green-800 text-xl" /> Time: <span className="text-xl font-bold text-blue-800">{new Date(sales.createdAt).toLocaleTimeString('en-US', { hour12: false })}</span>
+                        <FaCalendarAlt className="inline text-green-800 text-xl" /> Updated: <span className="text-xl font-bold text-blue-800">{new Date(sales.updatedAt).toLocaleDateString()} - {new Date(sales.updatedAt).toLocaleTimeString('en-US', { hour12: true })}</span>
                     </label>
                 </div>
             </div>

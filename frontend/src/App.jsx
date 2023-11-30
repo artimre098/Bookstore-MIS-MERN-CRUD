@@ -7,7 +7,7 @@ import EditBook from '../src/pages/EditBook.jsx'
 import DeleteBook from '../src/pages/DeleteBook.jsx'
 import HomeSales from './pages/HomeSales.jsx';
 import ShowSales from './components/sales/ShowSales.jsx'
-
+import EditSale from './components/sales/EditSale.jsx';
 <page></page>
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
       <Route path='/books/delete/:id' element={< DeleteBook/>}/>
       <Route path='/bookSale' element={<HomeSales />}/>
       <Route path='/bookSale/details/:id' element={<ShowSales />}/>
+      <Route path='/bookSale/edit/:id' element={<EditSale />}/>
     </Routes>
   )
 }

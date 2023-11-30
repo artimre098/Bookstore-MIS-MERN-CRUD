@@ -204,7 +204,7 @@ const ShowSales = () => {
                         handleSale(sale);
                       }}
                     />
-                    <Link to={`/bookSale/details/${sale._id}`}>
+                    <Link to={`/bookSale/edit/${sale._id}`}>
                     <AiOutlineEdit className='text-3xl text-yellow-600 hover:text-black cursor-pointer' 
                         onClick={()=>{
                           console.log(sale._id)
