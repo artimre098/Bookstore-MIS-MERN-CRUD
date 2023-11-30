@@ -6,8 +6,9 @@ import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 
 const BookSaleTable = ({ books, sales }) => {
     const totalQuantities = {};
+   
 
-
+    
     sales.forEach((sale) => {
         if (!totalQuantities[sale.book_id]) {
             totalQuantities[sale.book_id] = 0;
@@ -48,7 +49,7 @@ const BookSaleTable = ({ books, sales }) => {
                         </td>
                         <td className='border border-slate-700 rounded-mb text-center'>
                             <div className='flex justify-center gap-x-4'>
-                                <Link to={`books/details/${book._id}`}>
+                                <Link to={`/bookSale/details/${book._id}`}>
                                     <BsInfoCircle className='text-2xl text-green-800' />
                                 </Link>
                                 <Link to={`books/edit/${book._id}`}>
