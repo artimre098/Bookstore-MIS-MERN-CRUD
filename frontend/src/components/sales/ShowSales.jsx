@@ -134,7 +134,8 @@ const ShowSales = () => {
           const filteredBooks = response.data.data.filter((sale) => sale.book_id === id &&(
             sale.customerName.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 ||
             sale.department.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 ||
-            sale.quantity.toString().indexOf(searchTerm) !== -1)
+            sale.quantity.toString().indexOf(searchTerm) !== -1 ||
+            sale.createdAt.toString().indexOf(searchTerm) !== -1) 
 
           );
 
@@ -207,7 +208,7 @@ const ShowSales = () => {
                     <Link to={`/bookSale/edit/${sale._id}`}>
                     <AiOutlineEdit className='text-3xl text-yellow-600 hover:text-black cursor-pointer' 
                         onClick={()=>{
-                          console.log(sale._id)
+                         // console.log(sale._id)
                         }}
                     />
                     </Link>
