@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Spinner from '../components/Spinner'
-import { Link } from 'react-router-dom'
-import { AiOutlineEdit } from 'react-icons/ai'
-import { BsInfoCircle } from 'react-icons/bs'
-import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 
 import Search from '../components/Search'
 import BookSaleTable from '../components/sales/BookSaleTable'
@@ -14,7 +10,6 @@ const HomeSales = () => {
     const [books, setBooks] = useState([]);
     const [sales, setSales] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [showType, setShowType] = useState('table');
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -56,7 +51,7 @@ const HomeSales = () => {
     useEffect(() => {
         const handleSearch = async () => {
             try {
-                console.log('Search Term:', searchTerm);
+                //console.log('Search Term:', searchTerm);
                 if (searchTerm.trim() === '') {
                    // console.log('Fetching original data...');
                     fetchData(); // If search term is empty, fetch original data

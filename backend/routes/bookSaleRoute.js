@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 // Get a specific book sale by ID
 router.get('/:id', async (req, res) => {
     try {
-        console.log('BookSale ID:', req.params.id);
+        //console.log('BookSale ID:', req.params.id);
         const bookSale = await BookSale.findById(req.params.id);
         if (!bookSale) {
             return res.status(404).json({ success: false, message: 'Book Sale not found' });

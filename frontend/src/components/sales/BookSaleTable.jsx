@@ -6,7 +6,6 @@ import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 
 const BookSaleTable = ({ books, sales }) => {
     const totalQuantities = {};
-   
 
     
     sales.forEach((sale) => {
@@ -14,7 +13,6 @@ const BookSaleTable = ({ books, sales }) => {
             totalQuantities[sale.book_id] = 0;
         }
         totalQuantities[sale.book_id] += sale.quantity;
-        //console.log(sale.book_id);
     });
 
     // Calculate total quantities for each book
