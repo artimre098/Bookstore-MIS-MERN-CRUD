@@ -14,72 +14,23 @@ const [userType,setUserType] = useState('user');
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
  
-  const validateRegistration = (userData) => {
-    const errors = {};
   
-    // Validate username
-    if (!userData.username || userData.username.trim() === '') {
-      errors.username = 'Username is required';
-    }
-  
-    // Validate email
-    if (!userData.email || userData.email.trim() === '') {
-      errors.email = 'Email is required';
-    } else if (!isValidEmail(userData.email)) {
-      errors.email = 'Invalid email format';
-    }
-  
-    // Validate password
-    if (!userData.password || userData.password.trim() === '') {
-      errors.password = 'Password is required';
-    } else if (userData.password.length < 20) {
-      errors.password = 'Password must be at least 6 characters';
-    }
 
-    if(!userData.password === confirmPassword) {
-        errors.password = 'Password and Confirm Password mismatch';
-    }
-  
-    // Validate userType
-    if (!userData.userType || !['admin', 'user'].includes(userData.userType)) {
-      errors.userType = 'Invalid user type';
-    }
-  
-    return { errors, isValid: Object.keys(errors).length === 0 };
-  };
-  
-  // Helper function to validate email format
-  const isValidEmail = (email) => {
-    // You can use a regular expression or any email validation library here
-    // For simplicity, let's assume a basic format with "@" and "."
-    return /\S+@\S+\.\S+/.test(email);
-  };
-
-  const handleRegisterUser = async () => {
-
+  const handleRegisterUser =  () => {
+    
     const data = {
       username,
       fullName,
       email,
       password,
+      confirmPassword,
       userType,
     };
-    //setLoading(true);
-    console.log(data);
-    validateRegistration(data);
-    // axios
-    //   .post('http://localhost:5555/register', data)
-    //   .then(() => {
+    
+    
 
-    //     setLoading(false);
-    //     enqueueSnackbar('User Created Successfully!', { variant: 'success' });
-    //     navigate('/');
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     enqueueSnackbar('User Creation Error!', { variant: 'error' });
-    //     setLoading(false);
-    //   });
+
+    
   };
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100">
@@ -131,6 +82,7 @@ const [userType,setUserType] = useState('user');
                     <div className="mb-4">
                         <label htmlFor="password" className="block text-gray-600 text-sm font-medium mb-2">
                             Password
+                            
                         </label>
                         <input
                             type="password"
